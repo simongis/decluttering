@@ -20,6 +20,7 @@ It writes the results into a feature table that can be used for reporting purpos
 * Add some metadata
 * Run through the cells
 
+![image](https://user-images.githubusercontent.com/2769383/126941843-5d5e758a-a94e-425a-bb30-9582cf0f2238.png)
 
 ![image](https://user-images.githubusercontent.com/2769383/126859298-11fc1d12-a4b2-4745-9161-0ce711dd21ba.png)
 
