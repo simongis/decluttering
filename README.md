@@ -10,7 +10,7 @@ This notebook will detect and notify users about items that are:
 * Are old
 
 It writes the results into a feature table that can be used for reporting purposes if required.
-![image](https://user-images.githubusercontent.com/2769383/126941843-5d5e758a-a94e-425a-bb30-9582cf0f2238.png)
+![image](https://user-images.githubusercontent.com/2769383/126941980-25d64e35-6820-4a92-a638-ba7ea529ee62.png)
 
 ## Setup
 
