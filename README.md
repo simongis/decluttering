@@ -1,6 +1,9 @@
 # decluttering
 This notebook attempts to find potential clutter in the organisation, and send a gentle reminder to the item owners to consider removing the items. 
 
+![image](https://user-images.githubusercontent.com/2769383/126947526-25ac0ad7-ee03-4d99-b6c1-7e08b555a325.png)
+
+
 As an ArcGIS administrator, I don't want to stifle content creation amongst my Web GIS users, but I do want to gently remind them to clear out items that are no longer being used. 
 
 This notebook will detect and notify users about items that are:
