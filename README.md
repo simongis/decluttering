@@ -21,8 +21,13 @@ It writes the results into a feature table that can be used for reporting purpos
 * Login to a your ArcGIS Online account (recommend testing in a free **developer plan** or staging subscription first)
 * Content section --> New Item
 * Drag and drop the notebook in
-* Add some metadata
+* Add some metadata to item
+* Create new table in your organisation using this [template](https://esriau.maps.arcgis.com/home/item.html?id=5652d25a937b4caf81e3be82ef8abe30)
+* Update the variable shown in cell below 
 * Run through the cells
+
+![image](https://user-images.githubusercontent.com/2769383/126948124-937518fb-e039-46bb-9ef8-75bba3e31288.png)
+
 
 ![image](https://user-images.githubusercontent.com/2769383/126859298-11fc1d12-a4b2-4745-9161-0ce711dd21ba.png)
 
