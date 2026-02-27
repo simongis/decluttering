@@ -1,8 +1,12 @@
-# decluttering
-This notebook attempts to find potential clutter in the organisation, and send a gentle reminder to the item owners to consider removing the items. 
+# Decluttering Notebook
+Identify stale content in your ArcGIS Online organisation and send polite, automated reminders to item owners to consider cleaning up.
 
 ![image](https://user-images.githubusercontent.com/2769383/126948765-d0770d29-23e7-4f4c-bc24-eb51ebd32663.png)
 
+
+## Overview
+
+A healthy ArcGIS Online organisation creates a lot of content. Over time, older items accumulate that are no longer actively used but continue to consume storage credits. This notebook helps admins manage that problem without being heavy-handed — it identifies stale items and nudges owners to take action, rather than deleting anything automatically.
 
 As an ArcGIS administrator, I don't want to stifle content creation amongst my Web GIS users, but I do want to gently remind them to clear out items that are no longer being used. 
 
@@ -12,12 +16,14 @@ This notebook will detect and notify users about items that are:
 * Larger filesizes
 * Are old
 
-It writes the results into a feature table that can be used for reporting purposes if required.
+Results are written to a Hosted Table in your org for reporting and dashboarding. A public-facing dashboard showing the stale items list is a surprisingly effective way to encourage users to self-manage — no-one wants to appear on the list.
 
 ![image](https://user-images.githubusercontent.com/2769383/126949487-1b24d05c-f136-444f-845b-99efe6953197.png)
 
 
 ![image](https://user-images.githubusercontent.com/2769383/126941980-25d64e35-6820-4a92-a638-ba7ea529ee62.png)
+
+
 
 ## Setup
 
