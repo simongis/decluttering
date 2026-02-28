@@ -27,14 +27,72 @@ Results are written to a Hosted Table in your org for reporting and dashboarding
 
 ## Setup
 
-* Download the notebook
-* Login to a your ArcGIS Online account (recommend testing in a free **developer plan** or staging subscription first)
-* Content section --> New Item
-* Drag and drop the notebook in
-* Add some metadata to item
-* Create new table in your organisation using this [template](https://esriau.maps.arcgis.com/home/item.html?id=5652d25a937b4caf81e3be82ef8abe30)
-* Update the variable shown in cell below 
-* Run through the cells
+> ⚠️ **Test first.** Run this notebook against a free [ArcGIS Developer Plan](https://developers.arcgis.com/sign-up/) or a staging subscription before using it in production.
+
+### 1. Create the Hosted Table
+
+The notebook writes results to a Hosted Table. Create one in your org and do NOT make it public.  You can remove email if you do not want this information recorded.  This is to support other workflows where you might want to send emails or work with notification in MS Teams via a bot.
+
+The table requires the following fields:
+
+| Field | Type | Purpose |
+|---|---|---|
+| `id` | String | ArcGIS item ID |
+| `title` | String | Item title |
+| `owner` | String | Username |
+| `FirstName` | String | Owner's first name (used in notification comment) |
+| `email` | String | Owner's email address |
+| `disabled` | String | Whether the owner account is disabled (`"0"` / `"1"`) |
+| `access` | String | Item sharing level |
+| `size_mb` | Double | Item size in MB |
+| `numViews60d` | Integer | Views in last 60 days |
+| `ReminderSent` | Date | Timestamp of notification — `NULL` means not yet notified |
+
+### 2. Upload the notebook
+
+- Log in to your ArcGIS Online account
+- Go to **Content → New Item**
+- Drag and drop `declutter.ipynb` into the upload dialog
+- Add metadata to the item
+
+Alternatively you can run this notebook from importing it into ArcGIS Pro or VS Code, but then you can't later schedule it to run.
+
+### 3. Configure
+
+Open the notebook and update **Cell 2** — this is the only cell you need to edit before running:
+
+```python
+# STALE ITEM THRESHOLDS
+views    = 10   # fewer than this many views in the last 60 days
+size_mb  = 5    # larger than this many MB
+age_days = 40   # older than this many days
+
+# HOSTED TABLE
+table_item = 'YOUR_TABLE_ITEM_ID_HERE'  # replace with your item ID
+
+# NOTIFICATION SETTINGS
+NOTIFICATION_PREFIX     = '⚠️ AUTOMATED NOTIFICATION'  # do not change after first run
+SLEEP_BETWEEN_COMMENTS  = 15  # seconds between comments — do not set below 12
+```
+> ⚠️ **Do not change `NOTIFICATION_PREFIX` after your first run.** The notebook uses this string to detect previously notified items. Changing it will cause all items to be treated as new and owners will receive duplicate notifications.
+
+### 4. Run the notebook
+
+The notebook is structured as a linear flow. Run each cell in order:
+
+| Cell | What it does |
+|---|---|
+| 1 | Connect to GIS |
+| 2 | Set configuration |
+| 3 | Search for all Hosted Feature Services |
+| 4 | Scan items and apply stale filters |
+| 5 | Preview results as a DataFrame |
+| 6 | Write results to the Hosted Table |
+| 7 | Return the table item |
+| 8 | Query items pending notification |
+| 9 | Define `check_comments()` helper |
+| 10 | **Preview** notifications — review who will be contacted before proceeding |
+| 11 | **Send** notifications — only run once satisfied with the preview |
 
 ![image](https://user-images.githubusercontent.com/2769383/126948124-937518fb-e039-46bb-9ef8-75bba3e31288.png)
 
